@@ -1,0 +1,592 @@
+{
+    "data": [
+        {
+            "id": "topic-explainer",
+            "icon": "0xf452",
+            "color": "0xFFE0B447",
+            "title": "Topic Explainer",
+            "disc": "Explain Like 5 Year Old Child",
+            "prompt": "Please explain the {topic} to me in a way that is easy to understand for someone who is {year} years old and has a basic understanding of {knows} and struggling with {struggles}. Please provide the response in markdown format, with an overview of the topic, its relevance, and any key concepts that are important to understand. Please keep the tone of the response informative and also, include images to make it more engaging",
+            "schema": {
+                "properties": {
+                    "{topic}": {
+                        "type": "text",
+                        "title": "Topic",
+                        "default": "AI",
+                        "placeholder": "Enter Topic you want to learn"
+                    },
+                    "{year}": {
+                        "type": "number",
+                        "title": "Age",
+                        "default": 5,
+                        "placeholder": "Enter age"
+                    },
+                    "{knows}": {
+                        "type": "text",
+                        "title": "Expertise Area",
+                        "default": "Computer",
+                        "placeholder": "'computer', 'marketing', etc..."
+                    },
+                    "{struggles}": {
+                        "type": "text",
+                        "title": "you struggle with?",
+                        "default": "Math",
+                        "placeholder": "'math', 'science', etc.."
+                    }
+                }
+            }
+        },
+        {
+            "id": "mcq-type-quiz",
+            "icon": "0xf2e2",
+            "color": "0xFFC36B74",
+            "title": "MCQ Type Quiz",
+            "disc": "Generate MCQs with Answer",
+            "prompt": "create a mcq quiz on topic {topic} with {number} number of mcq, in json format with keys question, options with list of option and answer, and all objects must be contain in a key questions. Response should directly starts with {}.",
+            "schema": {
+                "properties": {
+                    "{topic}": {
+                        "type": "text",
+                        "title": "Enter Name of the Topic",
+                        "default": "Indian history",
+                        "placeholder": "Write any topic"
+                    },
+                    "{number}": {
+                        "type": "number",
+                        "title": "No. of Questions",
+                        "default": "5",
+                        "Placeholder": "Enter number"
+                    }
+                }
+            }
+        },
+        {
+            "id": "comprehensive-study-plan",
+            "icon": "0xf06f7",
+            "color": "0xFF87677B",
+            "title": "Create Study Plan",
+            "disc": "Comprehensive Study Plan",
+            "prompt": "Create a detailed study plan for mastering {topic} in {days} days. Please include specific tasks to be completed, recommendations for studying techniques or resources that would be helpful, suggestions for managing time effectively while studying, and ensure that the study plan is designed to help achieve the end goal. Additionally, please offer suggestions on how to stay motivated and focused during long-term studying, and provide guidance on how to evaluate progress and make adjustments to the study plan as needed. Please use appropriate markdown format to improve the readability and comprehension of the response.",
+            "schema": {
+                "properties": {
+                    "{topic}": {
+                        "type": "text",
+                        "title": "Topic",
+                        "default": "algebra",
+                        "placeholder": "Enter topic"
+                    },
+                    "{days}": {
+                        "type": "number",
+                        "title": "Days",
+                        "default": 15,
+                        "placeholder": "Number of Days to Complete Study"
+                    }
+                }
+            }
+        },
+        {
+            "id": "mindmap-generator",
+            "icon": "0xf1ae",
+            "color": "0xFF5BBA6F",
+            "title": "Mind Map Generator",
+            "disc": "Generate Mind Map on Topic",
+            "prompt": "Create a mindmap to visually represent the main concepts and relationships of a given topic in syntax compatible to mermaid tool . Use appropriate formatting to enhance the readability and visual appeal of the mindmap, with insights from a Mind Mapping Expert and a UX Designer. Collaborate with a Technical Writer to write clear and concise labels or descriptions for each node to provide a clear understanding of the connections between the different concepts. \nRules:  \n1. Do not use dashes in your response. If necessary, use spaces instead. \n2. Just return output starting from mindmap. \n3. Do not write explanation or anything else.\nAll three strict rule should be followed strictly. \nExample: \n{'user': 'create mindmap on topic mindmap', \n'assistant': 'mindmap\r\n  root((Flutter))\r\n    Origins\r\n      Google's mobile app SDK\r\n      ::icon(fa fa-google)\r\n    Features\r\n      Hot Reload\r\n      ::icon(fa fa-fire)\r\n      Widgets\r\n        StatefulWidget\r\n        StatelessWidget\r\n      Material Design\r\n        Buttons\r\n        Cards\r\n        Dialogs\r\n    Development Tools\r\n      Android Studio\r\n        ::icon(fa fa-android)\r\n      Visual Studio Code\r\n        ::icon(fa fa-code)\r\n      Xcode\r\n        ::icon(fa fa-apple)\r\n    Platforms\r\n      Android\r\n        ::icon(fa fa-android)\r\n      iOS\r\n        ::icon(fa fa-apple)'},'user': 'Follow above syntax and create mindmap on topic {topic}'",
+            "schema": {
+                "properties": {
+                    "{topic}": {
+                        "type": "text",
+                        "title": "Topic",
+                        "default": "Networking",
+                        "placeholder": "Enter a topic to generate mindmap"
+                    }
+                }
+            }
+        },
+        {
+            "id": "english-dictionary",
+            "icon": "0xf1c2",
+            "color": "0xFFA4B8C4",
+            "title": "English Dictionary",
+            "disc": "Find Meaning of Words",
+            "prompt": "Act like an English teacher and give me the definition of the word {word}, in plain language, and give me three examples of its use in English. Also, give me an explanation of the etymology of the word",
+            "schema": {
+                "properties": {
+                    "{word}": {
+                        "type": "text",
+                        "title": "Word",
+                        "default": "",
+                        "placeholder": "Consult a dictionary and enter a word"
+                    }
+                }
+            }
+        },
+        {
+            "id": "language-translator",
+            "icon": "0xf45e",
+            "color": "0xFFf4a261",
+            "title": "Language Translator",
+            "disc": "Your Personal Translator",
+            "prompt": "Translate the sentence {sentence} from {source_language} to {target_language}",
+            "schema": {
+                "properties": {
+                    "{sentence}": {
+                        "type": "text",
+                        "title": "Sentence",
+                        "default": "",
+                        "placeholder": "Enter a sentence to translate"
+                    },
+                    "{source_language}": {
+                        "type": "text",
+                        "title": "Source Language",
+                        "default": "",
+                        "placeholder": "Enter the source language"
+                    },
+                    "{target_language}": {
+                        "type": "text",
+                        "title": "Target Language",
+                        "default": "",
+                        "placeholder": "Enter the target language"
+                    }
+                }
+            }
+        },
+        {
+            "id": "math-teacher",
+            "icon": "0xef10",
+            "color": "0xFFC89CD5",
+            "title": "Math Teacher",
+            "disc": "Ask questions about Math",
+            "prompt": "I want you to act as a math teacher. I will provide some mathematical equations or concepts, and it will be your job to explain them in easy-to-understand terms. This could include providing step-by-step instructions for solving a problem, demonstrating various techniques with visuals or suggesting online resources for further study. My first request is {question}?",
+            "schema": {
+                "properties": {
+                    "{question}": {
+                        "type": "text",
+                        "title": "Question",
+                        "default": "",
+                        "placeholder": "Enter a math question"
+                    }
+                }
+            }
+        },
+        {
+            "id": "compare-topics",
+            "icon": "0xef71",
+            "color": "0xFFF2919B",
+            "title": "Compare Topic",
+            "disc": "Get Difference with Pros & Cons",
+            "prompt": "Please compare {topic1} and {topic2} and write a document with a minimum of {count} differences between the two, including their pros and cons. Make sure to ground your comparison in reliable sources of information and data. Please use appropriate markdown format to improve the readability and comprehension of the response.",
+            "schema": {
+                "properties": {
+                    "{topic1}": {
+                        "type": "text",
+                        "title": "Topic 1",
+                        "default": "algebra",
+                        "placeholder": "Enter First Topic"
+                    },
+                    "{topic2}": {
+                        "type": "text",
+                        "title": "Topic 2",
+                        "default": "calculas",
+                        "placeholder": "Enter Other Topic"
+                    },
+                    "{count}": {
+                        "type": "number",
+                        "title": "No. of difference",
+                        "default": "5",
+                        "placeholder": "Enter a number"
+                    }
+                }
+            }
+        },
+        {
+            "id": "email-generator",
+            "icon": "0xf018",
+            "color": "0xFFFFD34A",
+            "title": "Email Generator",
+            "disc": "Generate email for any purpose",
+            "prompt": "I want you to act as an email generator and help me compose a message to my {recipient}, regarding the {subject} subject. I am writing to ask for {purpose}. Can you compose an email that is both polite and professional in tone, and clearly conveys my message. Please use appropriate markdown format to improve the readability and comprehension of the response.",
+            "schema": {
+                "properties": {
+                    "{recipient}": {
+                        "type": "text",
+                        "title": "Recipient",
+                        "default": "",
+                        "placeholder": "Enter the recipient's designation"
+                    },
+                    "{subject}": {
+                        "type": "text",
+                        "title": "Subject",
+                        "default": "",
+                        "placeholder": "Enter the email subject."
+                    },
+                    "{purpose}": {
+                        "type": "textarea",
+                        "title": "Purpose",
+                        "default": "",
+                        "placeholder": "Enter the purpose of the email."
+                    }
+                }
+            }
+        },
+        {
+            "id": "chemical-reaction-visualizer",
+            "icon": "0xf33d",
+            "color": "0xFF6CB5C8",
+            "title": "Chemical Reactions",
+            "disc": "Visualize chemical reactions",
+            "prompt": "Consider the chemical reaction {equation}. Explain it & Write out the balanced chemical equation for the reaction between these two reactants. Draw equations in markdown & Use best visualisation techniques to make it more understandable.",
+            "schema": {
+                "properties": {
+                    "{equation}": {
+                        "type": "text",
+                        "title": "Reaction Equation",
+                        "default": "CO2 + H20",
+                        "placeholder": "Enter the chemical equation"
+                    }
+                }
+            }
+        },
+        {
+            "id": "grammar-correction",
+            "icon": "0xf05b1",
+            "color": "0xFFF7A74B",
+            "title": "Grammarian",
+            "disc": "Check Your Grammar",
+            "prompt": "Improve language, correct grammar and punctuation of the text delimited in backticks ```{text}```. Please use appropriate markdown format to improve the readability and comprehension of the response.",
+            "schema": {
+                "properties": {
+                    "{text}": {
+                        "type": "text",
+                        "title": "Enter Text",
+                        "default": "I is very happy",
+                        "placeholder": "Enter text"
+                    }
+                }
+            }
+        },
+        {
+            "id": "song-generator",
+            "icon": "0xf1fb",
+            "color": "0xFF9E9E9E",
+            "title": "Song Generator",
+            "disc": "Memorize topics with songs",
+            "prompt": "Write a song as {singer} on the topic of {topic}. So, I can memorize it in a better way. Use the appropriate markdown format to improve the readability and comprehension of the response.",
+            "schema": {
+                "properties": {
+                    "{singer}": {
+                        "type": "text",
+                        "title": "Singer",
+                        "default": "",
+                        "placeholder": "Enter the name of the singer."
+                    },
+                    "{topic}": {
+                        "type": "text",
+                        "title": "Topic",
+                        "default": "",
+                        "placeholder": "Enter the topic of the song."
+                    }
+                }
+            }
+        },
+        {
+            "id": "historical-event-summary",
+            "icon": "0xf101",
+            "color": "0xFF64C598",
+            "title": "Historical Event Summary",
+            "disc": "Summarize a Historical Event",
+            "prompt": "Summarize the {event} that took place in {year}. Provide a concise overview of the event, its significance, and its impact on {region/country/world}. You can include key dates, important figures, and any relevant details. Feel free to use bullet points or headings to structure your response and make it easier to read.",
+            "schema": {
+                "properties": {
+                    "{event}": {
+                        "type": "text",
+                        "title": "Event",
+                        "default": "Industrial Revolution",
+                        "placeholder": "Enter Event Name"
+                    },
+                    "{year}": {
+                        "type": "number",
+                        "title": "Year",
+                        "default": 1760,
+                        "placeholder": "Enter Year"
+                    },
+                    "{region/country/world}": {
+                        "type": "text",
+                        "title": "Region/Country/World",
+                        "default": "Europe",
+                        "placeholder": "Enter Region/Country/World"
+                    }
+                }
+            }
+        },
+        {
+            "id": "scientific-concept",
+            "icon": "0xeecf",
+            "color": "0xFFF291C6",
+            "title": "Scientific Concepts",
+            "disc": "Learn Complex Science Concepts",
+            "prompt": "Choose a complex scientific concept, such as {concept}, and create a visual representation that simplifies its understanding in markdown. Use diagrams, illustrations to explain the key principles and processes involved. Provide a brief description alongside the visuals to enhance comprehension. Your goal is to make the concept accessible to individuals with a basic understanding of {field} but struggling with {struggles}.",
+            "schema": {
+                "properties": {
+                    "{concept}": {
+                        "type": "text",
+                        "title": "Scientific Concept",
+                        "default": "Quantum Mechanics",
+                        "placeholder": "Enter Scientific Concept"
+                    },
+                    "{field}": {
+                        "type": "text",
+                        "title": "Field of Study",
+                        "default": "Physics",
+                        "placeholder": "'physics', 'biology', etc."
+                    },
+                    "{struggles}": {
+                        "type": "text",
+                        "title": "Struggling with",
+                        "default": "Complex Equations",
+                        "placeholder": "'complex equations', 'abstract theories', etc."
+                    }
+                }
+            }
+        },
+        {
+            "id": "historical-event-analysis",
+            "icon": "0xee74",
+            "color": "0xFF7EC7E0",
+            "title": "History Analysis",
+            "disc": "Understand History with Analysis",
+            "prompt": "Choose a significant historical event, such as {event}, and provide a comprehensive analysis of its causes, consequences, and impact on society. In your analysis, consider the political, social, and economic factors that contributed to the event. Use relevant examples, primary sources, and scholarly references to support your analysis. Give response in markdown.",
+            "schema": {
+                "properties": {
+                    "{event}": {
+                        "type": "text",
+                        "title": "Historical Event",
+                        "default": "World War II",
+                        "placeholder": "Enter Historical Event"
+                    }
+                }
+            }
+        },
+        {
+            "id": "career-counselor",
+            "icon": "0xe6f4",
+            "color": "0xFFEAC238",
+            "title": "Career Counselor",
+            "disc": "Find out Potential Career Aspiration",
+            "prompt": "Act as an AI Career Counselor. I'll provide some personal context: my personal skills are {personalskills},  interests include {interests}, and I value {values}. Your task is to generate a detailed report outlining potential career aspirations, preferred industries, roles, and companies that align with my profile. The result should be specific, constructive, and organized in the format: [Career Goal]: [Preferred Industry]: [Potential Roles]: [Company Suggestions]",
+            "schema": {
+                "properties": {
+                    "{personalskills}": {
+                        "type": "text",
+                        "title": "Personal Skills",
+                        "default": "World War II",
+                        "placeholder": "Enter Personal Skills"
+                    },
+                    "{interests}": {
+                        "type": "text",
+                        "title": "Interests",
+                        "default": "solving problems",
+                        "placeholder": "Enter Interests"
+                    },
+                    "{values}": {
+                        "type": "text",
+                        "title": "Values",
+                        "default": "creating value for the world",
+                        "placeholder": "Enter Values"
+                    }
+                }
+            }
+        },
+        {
+            "id": "learn-with-feynman",
+            "icon": "0xf33c",
+            "color": "0xFFE06278",
+            "title": "Learn with Feynman",
+            "disc": "Deeper understanding of any field",
+            "prompt": "Act as Richard Feynman and Explain {topic} in the simplest terms possible as if teaching it to a complete beginner. Identify gaps in my understanding and suggest resources to fill them.",
+            "schema": {
+                "properties": {
+                    "{topic}": {
+                        "type": "text",
+                        "title": "Topic",
+                        "default": "Schrodinger's cat",
+                        "placeholder": "Some Topic that you want to dig deeper"
+                    }
+                }
+            }
+        },
+        {
+            "id": "memorize-key-information",
+            "icon": "0xe33d",
+            "color": "0xFFF19262",
+            "title": "Memorize key information",
+            "disc": "Technique to remember them easily",
+            "prompt": "What are the most important facts, dates, or formulas related to {topic}? Help me create a memorization technique to remember them easily.",
+            "schema": {
+                "properties": {
+                    "{topic}": {
+                        "type": "text",
+                        "title": "Topic",
+                        "default": "India Independent Revolution",
+                        "placeholder": "Topic that is difficult to remember"
+                    }
+                }
+            }
+        },
+        {
+            "id": "topic-joke",
+            "icon": "0xef4f",
+            "color": "0xFFAA82B3",
+            "title": "Joke on Topic",
+            "disc": "Take a little break from study",
+            "prompt": "Write friendly joke about {topic} , it should be suitable for age {age}  and safe for work",
+            "schema": {
+                "properties": {
+                    "{topic}": {
+                        "type": "text",
+                        "title": "Topic",
+                        "default": "Chuck Norris",
+                        "placeholder": "Topic that you want to joke about"
+                    },
+                    "{age}": {
+                        "type": "number",
+                        "title": "Your Age",
+                        "default": 18,
+                        "placeholder": "Your Age"
+                    }
+                }
+            }
+        },
+        {
+            "id": "programming-language-recommender",
+            "icon": "0xe176",
+            "color": "0xFF878F9E",
+            "title": "Language Recommender",
+            "disc": "Find the Perfect Coding Language",
+            "prompt": "I want to learn a new programming language, but I'm not sure which one to choose. Can you recommend a programming language based on my preferences and requirements? Here are some details to consider:\n\n- **Experience Level:** I have {experience} years of experience in programming.\n- **Application Domain:** I'm interested in developing {domain} applications.\n- **Performance Requirements:** The language should be suitable for {performance}.\n- **Ease of Learning:** I prefer a language that is {learning} to learn.\n- **Community and Resources:** The language should have a thriving community and abundant learning resources.\n\nPlease provide a recommendation along with a brief explanation of why it is a good fit for me.",
+            "schema": {
+                "properties": {
+                    "{experience}": {
+                        "type": "number",
+                        "title": "Years of Experience",
+                        "default": 2,
+                        "placeholder": "Enter your years of programming experience"
+                    },
+                    "{domain}": {
+                        "type": "text",
+                        "title": "Application Domain",
+                        "default": "web",
+                        "placeholder": "Enter the application domain of interest"
+                    },
+                    "{performance}": {
+                        "type": "text",
+                        "title": "Performance Requirements",
+                        "default": "high-performance",
+                        "placeholder": "Enter your performance requirements"
+                    },
+                    "{learning}": {
+                        "type": "text",
+                        "title": "Ease of Learning",
+                        "default": "easy",
+                        "placeholder": "Enter your preferred learning difficulty"
+                    }
+                }
+            }
+        },
+        {
+            "id": "essay-assistance",
+            "icon": "0xf04e",
+            "color": "0xFFD1784C",
+            "title": "Essay Assistance",
+            "disc": "Get help with writing an academic essay",
+            "prompt": "Write a {type} essay on the topic of {topic}. Provide a well-structured and coherent essay that includes an introduction, body paragraphs, and a conclusion. Make sure to support your arguments with relevant evidence and examples. Aim for a word count of {word_count} words. Please pay attention to grammar, spelling, and overall writing style. Feel free to ask any specific questions or provide additional instructions.",
+            "schema": {
+                "properties": {
+                    "{type}": {
+                        "type": "text",
+                        "title": "Essay Type",
+                        "default": "Argumentative",
+                        "placeholder": "Enter Essay Type"
+                    },
+                    "{topic}": {
+                        "type": "text",
+                        "title": "Essay Topic",
+                        "default": "The Impact of Technology on Education",
+                        "placeholder": "Enter Essay Topic"
+                    },
+                    "{word_count}": {
+                        "type": "number",
+                        "title": "Word Count",
+                        "default": 1000,
+                        "placeholder": "Enter Word Count"
+                    }
+                }
+            }
+        },
+        {
+            "id": "copywriting-tips",
+            "icon": "0xef87",
+            "color": "0xFF856553",
+            "title": "Copywriting Tips",
+            "disc": "Learn Effective Copywriting Techniques",
+            "prompt": "Share {number} essential tips for writing compelling copy. Each tip should be concise and actionable. Provide practical examples to illustrate each tip and explain its importance in creating persuasive and engaging content.",
+            "schema": {
+                "properties": {
+                    "{number}": {
+                        "type": "number",
+                        "title": "Number of Tips",
+                        "default": 5,
+                        "placeholder": "Enter the number of tips"
+                    }
+                }
+            }
+        },
+        {
+            "id": "research-topic-suggestions",
+            "icon": "0xf34b",
+            "color": "0xFF6B5A62",
+            "title": "Research Topic Suggestions",
+            "disc": "Generate Research Topic Ideas",
+            "prompt": "Generate {number} research topic ideas in the field of {field}. Each topic idea should be a concise and clear research question or problem statement that is relevant to the chosen field. You can use keywords, existing research gaps, or emerging trends to inspire the topic ideas. Feel free to provide a brief justification or rationale for each topic idea if desired.",
+            "schema": {
+                "properties": {
+                    "{number}": {
+                        "type": "number",
+                        "title": "Number of Ideas",
+                        "default": 5,
+                        "placeholder": "Enter the number of research topic ideas"
+                    },
+                    "{field}": {
+                        "type": "text",
+                        "title": "Field of Research",
+                        "default": "Artificial Intelligence",
+                        "placeholder": "Enter the field of research"
+                    }
+                }
+            }
+        },
+        {
+            "id": "summarise-text",
+            "icon": "0xf3ff",
+            "color": "0xFF5BBA6F",
+            "title": "Summarize the Text",
+            "disc": "Easy & Quick to Understand",
+            "prompt": "Summarize the text {text} in {count} words. Ensure the summary is clear, concise, and easy to understand for a general audience. Please use appropriate markdown format to improve the readability and comprehension of the response.",
+            "schema": {
+                "properties": {
+                    "{text}": {
+                        "type": "text",
+                        "title": "Enter Text",
+                        "default": "",
+                        "placeholder": "Enter text to summarize"
+                    },
+                    "{count}": {
+                        "type": "number",
+                        "title": "No. of words",
+                        "default": "200",
+                        "placeholder": "Enter a number"
+                    }
+                }
+            }
+        }
+    ]
+}

@@ -9,18 +9,11 @@ const { data: jsonData } = dataDotJson;
 
 // Route to get app version information
 app.get('/version', (req, res) => {
-    try {
-        const versionData = fs.readFileSync('./version.json');
-        const { version, newAppLink } = JSON.parse(versionData).data;
-        const appVersionInfo = {
-            version,
-            newAppLink
-        };
-        res.json(appVersionInfo);
-    } catch (err) {
-        console.error('Error reading version.json file:', err);
-        res.status(500).json({ error: 'Failed to fetch version information' });
-    }
+    const appVersionInfo = {
+        version: "5.0.0",
+        newAppLink: "google.com"
+    };
+    res.json(appVersionInfo);
 });
 
 const paginationMiddleware = () => {

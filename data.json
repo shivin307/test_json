@@ -1,6 +1,10 @@
 {
     "data": [
         {
+            "version": "5.0.0",
+            "newAppLink": "google.com"
+        },
+        {
             "id": "topic-explainer",
             "icon": "0xf452",
             "color": "0xFFE0B447",
@@ -587,12 +591,6 @@
                     }
                 }
             }
-        }
-    ],
-    "version": [
-        {
-            "version": "5.0.0",
-            "newAppLink": "google.com"
         }
     ]
 }

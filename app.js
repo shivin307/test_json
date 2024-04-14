@@ -21,7 +21,7 @@ const getVersionInfo = () => {
         return JSON.parse(versionData);
     } catch (err) {
         console.error('Error reading version.json file:', err);
-        return {}; // Return an empty object if there's an error
+        return { err }; // Return an empty object if there's an error
     }
 };
 

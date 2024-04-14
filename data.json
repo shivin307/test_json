@@ -588,5 +588,9 @@
                 }
             }
         }
-    ]
+    ],
+    "version": {
+        "version": "5.0.0",
+        "newAppLink": "google.com"
+    }
 }

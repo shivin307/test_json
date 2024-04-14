@@ -1,9 +1,12 @@
 const express = require('express');
+const fs = require('fs'); // Import the 'fs' module to work with the file system
 const dataDotJson = require('./data.json');
+const versionDotJson = require('./version.json');
 
 const app = express();
 const PORT = process.env.PORT || 8080;
 const { data: jsonData } = dataDotJson;
+const { version, newAppLink } = versionDotJson;
 
 app.get('/', (req, res) => {
     const response = {
@@ -14,21 +17,9 @@ app.get('/', (req, res) => {
     res.json(response);
 });
 
-// Define a function to read the version information from the version.json file
-const getVersionInfo = () => {
-    try {
-        const versionData = fs.readFileSync('./version.json');
-        return JSON.parse(versionData);
-    } catch (err) {
-        console.error('Error reading version.json file:', err);
-        return { err }; // Return an empty object if there's an error
-    }
-};
-
 // Route to get app version information
 app.get('/version', (req, res) => {
-    const versionInfo = getVersionInfo();
-    res.json(versionInfo);
+    res.json({ version, newAppLink });
 });
 
 const paginationMiddleware = () => {
@@ -96,7 +87,6 @@ app.get('/id/:id', (req, res) => {
 app.get('*', function (req, res) {
     res.status(500).json({ error: 'Details not found!' });
 });
-
 
 app.listen(PORT, () => {
     console.log(`Server is running on port ${PORT}`);

@@ -6,22 +6,14 @@ const app = express();
 const PORT = process.env.PORT || 8080;
 const { data: jsonData } = dataDotJson;
 
-// Define a function to read the version information from the version.json file
-const getVersionInfo = () => {
-    try {
-        const versionData = fs.readFileSync('./version.json');
-        const versionInfo = JSON.parse(versionData);
-        return versionInfo.data; // Return the data object
-    } catch (err) {
-        console.error('Error reading version.json file:', err);
-        return {}; // Return an empty object if there's an error
-    }
-};
 
 // Route to get app version information
 app.get('/version', (req, res) => {
-    const versionInfo = getVersionInfo();
-    res.json(versionInfo);
+    const appVersionInfo = {
+        version: "5.0.0",
+        newAppLink: "google.com"
+    };
+    res.json(appVersionInfo);
 });
 
 const paginationMiddleware = () => {

@@ -1,9 +1,9 @@
 const express = require('express');
-const data = require('./data.json');
+const dataDotJson = require('./data.json');
 
 const app = express();
 const PORT = process.env.PORT || 8080;
-const { data: jsonData } = data;
+const { data: jsonData } = dataDotJson;
 
 app.get('/', (req, res) => {
     const response = {
@@ -12,6 +12,23 @@ app.get('/', (req, res) => {
     };
 
     res.json(response);
+});
+
+// Define a function to read the version information from the version.json file
+const getVersionInfo = () => {
+    try {
+        const versionData = fs.readFileSync('./version.json');
+        return JSON.parse(versionData);
+    } catch (err) {
+        console.error('Error reading version.json file:', err);
+        return {}; // Return an empty object if there's an error
+    }
+};
+
+// Route to get app version information
+app.get('/version', (req, res) => {
+    const versionInfo = getVersionInfo();
+    res.json(versionInfo);
 });
 
 const paginationMiddleware = () => {

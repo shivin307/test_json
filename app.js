@@ -1,15 +1,17 @@
 const express = require('express');
 const fs = require('fs'); // Import the 'fs' module to work with the file system
 const dataDotJson = require('./data.json');
+const versionDotJson = require('./version.json');
 
 const app = express();
 const PORT = process.env.PORT || 8080;
 const { data: jsonData } = dataDotJson;
+const { data: versionData } = versionDotJson;
 
 
 // Route to get app version information
 app.get('/version', (req, res) => {
-    const versionFilePath = path.join(versionInfo.json, 'versionInfo.json');
+    const versionFilePath = path.join(versionData, 'versionInfo.json');
     fs.readFile(versionFilePath, 'utf8', (err, data) => {
         if (err) {
             console.error('Error reading version info file:', err);

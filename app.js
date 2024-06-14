@@ -11,8 +11,7 @@ const { version: versionData } = versionDotJson;
 
 // Route to get app version information
 app.get('/version', (req, res) => {
-    const versionFilePath = path.join(versionData, 'versionInfo.json');
-    fs.readFile(versionFilePath, 'utf8', (err, data) => {
+    fs.readFile(versionData, 'utf8', (err, data) => {
         if (err) {
             console.error('Error reading version info file:', err);
             return res.status(500).json({ error: 'Failed to load version information' });

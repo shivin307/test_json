@@ -1,24 +1,27 @@
 const express = require('express');
 const fs = require('fs'); // Import the 'fs' module to work with the file system
 const dataDotJson = require('./data.json');
-const versionDotJson = require('./version.json');
 
 const app = express();
 const PORT = process.env.PORT || 8080;
 const { data: jsonData } = dataDotJson;
-const { version: versionData } = versionDotJson;
 
 
 // Route to get app version information
 app.get('/version', (req, res) => {
-    fs.readFile(versionData, 'utf8', (err, data) => {
-        if (err) {
-            console.error('Error reading version info file:', err);
-            return res.status(500).json({ error: 'Failed to load version information' });
-        }
-        const appVersionInfo = JSON.parse(data);
-        res.json(appVersionInfo);
-    });
+    const appVersionInfo = {
+        current_version: "5.0.0",
+        is_update_available: true,
+        update_type: "minor",
+        release_notes: "Added new features and fixed bugs.",
+        mandatory_update: false,
+        download_url: "https://example.com/app/download",
+        release_date: "2024-06-01",
+        min_supported_version: "4.0.0",
+        security_patches: "Fixed vulnerabilities in the authentication module.",
+        file_size: "50MB"
+    };
+    res.json(appVersionInfo);
 });
 
 const paginationMiddleware = () => {

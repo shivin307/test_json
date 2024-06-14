@@ -86,8 +86,15 @@ app.get('/id/:id', (req, res) => {
     res.json(response);
 });
 
-app.get('*', function (req, res) {
-    res.status(500).json({ error: 'Details not found!' });
+// Catch-all route for handling all requests
+app.get('*', (req, res) => {
+    res.status(200).json({ success: '🎉 Congratulations! Your deployment was successful! 🎉' });
+});
+
+// Error handling middleware
+app.use((err, req, res, next) => {
+    console.error(err.stack);
+    res.status(500).json({ error: 'Something went wrong!' });
 });
 
 app.listen(PORT, () => {

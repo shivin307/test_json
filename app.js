@@ -6,7 +6,7 @@ const versionDotJson = require('./version.json');
 const app = express();
 const PORT = process.env.PORT || 8080;
 const { data: jsonData } = dataDotJson;
-const { data: versionData } = versionDotJson;
+const { version: versionData } = versionDotJson;
 
 
 // Route to get app version information
